@@ -23,8 +23,10 @@ figcaption {
 
   div {
     text-align: right;
-    color: $bleu;
-    font-size: $small;
-    text-transform: capitalize;
+    button {
+      color: $bleu;
+      font-size: $small;
+      text-transform: capitalize;
+    }
   }
 }

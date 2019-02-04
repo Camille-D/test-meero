@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CardPetModule } from './components/card-pet/card-pet.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { CardPetModule } from './components/card-pet/card-pet.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CardPetModule
   ],
   providers: [],
