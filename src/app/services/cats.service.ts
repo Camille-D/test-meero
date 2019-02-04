@@ -11,14 +11,7 @@ export class CatsService {
 
   constructor(private http: HttpClient) { }
 
-  createAuthorizationHeader(headers: Headers) {
-    headers.append('Content-Type', 'application/json');
-    headers.append('x-api-key', `19f2e642-225c-4480-afab-5e0c2137b001`);
-  }
-
   getCats(): Observable<any> {
-    const header = new Headers();
-    this.createAuthorizationHeader(header);
     return this.http.get<any>(this.baseApi + 'breeds');
   }
 }
