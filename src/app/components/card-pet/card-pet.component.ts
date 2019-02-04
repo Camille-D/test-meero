@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CatsService } from '../../services/cats.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-card-pet',
@@ -10,18 +9,16 @@ import { map } from 'rxjs/operators';
 export class CardPetComponent implements OnInit {
 
   @Input() cat;
+  @Output() openModal = new EventEmitter();
 
   constructor(private catsService: CatsService) { }
 
   ngOnInit() {
-    if (this.cat && this.cat.wikipedia_url) {
-      // this.catsService.getImageCat(this.cat.wikipedia_url)
-      //   .pipe(
-      //     map((result) => {
-      //       console.log('result', result);
-      //     })
-      //   ).subscribe();
-    }
+
+  }
+
+  showDetails() {
+    this.openModal.emit(this.cat);
   }
 
 }

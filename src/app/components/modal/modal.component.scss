@@ -1,0 +1,20 @@
+@import "_colors";
+@import "_fonts";
+
+h1 {
+  font-size: $x-large;
+}
+.modal-box {
+  position: relative;
+  background-color: $bleu;
+  min-height: 30vh;
+  max-width: 50%;
+  margin: auto;
+  box-shadow: $shadow;
+}
+
+button.close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}

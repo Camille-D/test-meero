@@ -53,8 +53,12 @@ button.btn-filters {
 main {
   min-height: 80vh;
   margin: 2rem 0;
+
 }
 
-footer {
-  min-height: 10vh;
+.modal {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  z-index: 1;
 }

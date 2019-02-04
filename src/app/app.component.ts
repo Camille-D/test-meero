@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CatsService } from './services/cats.service';
 import { map } from 'rxjs/operators';
+import { CatInterface } from './interfaces/cat.interface';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,10 @@ import { map } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
 
-  cats;
+  cats: CatInterface[];
   breeds = ['all'];
+  catSelected: CatInterface;
+  displayModal = false;
 
   constructor(
     private catsService: CatsService
@@ -23,8 +26,7 @@ export class AppComponent implements OnInit {
   getAllCats() {
     this.catsService.getCats()
       .pipe(
-        map((result) => {
-          console.log('result', result);
+        map((result:  CatInterface[]) => {
           this.cats = result;
           return this.cats;
         }),
@@ -35,7 +37,7 @@ export class AppComponent implements OnInit {
       .subscribe();
   }
 
-  private createFiltersList(catsList) {
+  private createFiltersList(catsList: CatInterface[]) {
     catsList.filter((cat) => {
       if (cat.origin && !this.breeds.includes(cat.origin)) {
         this.breeds.push(cat.origin);
@@ -52,7 +54,7 @@ export class AppComponent implements OnInit {
     } else {
       this.catsService.getCatsByBreed(breed)
         .pipe(
-          map((result) => {
+          map((result:  CatInterface[]) => {
             if (result) {
               this.cats = result;
             }
@@ -62,5 +64,10 @@ export class AppComponent implements OnInit {
         .subscribe();
     }
 
+  }
+
+  openModalCatDetails(cat: CatInterface) {
+    this.catSelected = cat;
+    this.displayModal = !this.displayModal;
   }
 }

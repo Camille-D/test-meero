@@ -1,0 +1,12 @@
+
+.row.align-middle.modal-box
+  .column.shrink
+    img(src="assets/img/placeholder-img.png", alt="Image de l'animal")
+  .column.expanded
+    h1 {{ detailsCat?.name}}
+    p {{ detailsCat?.description}}
+
+  button(type="button", (click)="closeModal()" ).close
+    img(src="assets/img/icon-close.svg", alt="icone de fermeture")
+
+
