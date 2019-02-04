@@ -9,16 +9,18 @@ import { map } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
 
+  cats;
+
   constructor(
     private catsService: CatsService
-  )
-  {}
+  ) {}
 
   ngOnInit(): void {
     this.catsService.getCats()
       .pipe(
         map((result) => {
           console.log('result', result);
+          this.cats = result;
         })
       )
       .subscribe();

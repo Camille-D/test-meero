@@ -11,12 +11,9 @@ header
 
 
 main.row.expanded
-  .column.small-12.medium-6.large-4
-    app-card-pet
-  .column.small-12.medium-6.large-4
-    app-card-pet
-  .column.small-12.medium-6.large-4
-    app-card-pet
+  ng-container(*ngFor="let cat of cats")
+    .column.small-12.medium-6.large-4
+      app-card-pet([cat]="cat" )
 
 footer.row.expanded
 
