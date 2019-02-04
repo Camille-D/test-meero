@@ -1,5 +1,54 @@
-@import "colors";
+@import "_colors";
+@import "_fonts";
 
 nav {
   background-color: $bleu;
+  min-height: 10vh;
+  color: white;
+  .logo h1 {
+    text-transform: uppercase;
+    font-size: $large;
+  }
+  .filters {
+    text-align: right;
+  }
+}
+
+button.btn-filters {
+  box-shadow: $shadow;
+  position: relative;
+  background-color: $darkbleu;
+  padding: 1rem;
+  color: white;
+  min-width: 115px;
+  text-transform: capitalize;
+  &:hover {
+    .list-filter {
+      display: block;
+    }
+  }
+
+  .list-filter {
+    display: none;
+    position: absolute;
+    bottom: -95px;
+    left: 0;
+    width: 100%;
+    box-shadow: $shadow;
+    background-color: white;
+    color: black;
+    .filter {
+      line-height: 2rem;
+      cursor: pointer;
+    }
+  }
+}
+
+main {
+  min-height: 80vh;
+  margin: 2rem 0;
+}
+
+footer {
+  min-height: 10vh;
 }

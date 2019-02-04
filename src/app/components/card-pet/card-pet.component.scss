@@ -1,0 +1,30 @@
+@import "_colors";
+@import "_fonts";
+
+figure {
+  box-shadow: $shadow;
+}
+
+img {
+  height: 160px;
+  width: 100%;
+}
+
+figcaption {
+  padding: 1rem;
+  height: 130px;
+  h2 {
+    font-size: $large;
+    font-weight: normal;
+  }
+  p {
+    font-size: $small;
+  }
+
+  div {
+    text-align: right;
+    color: $bleu;
+    font-size: $small;
+    text-transform: capitalize;
+  }
+}

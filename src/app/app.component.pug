@@ -1,8 +1,23 @@
 header
-  nav
+  nav.row.expanded.align-middle.align-center
+    .column.shrink.logo
+      h1 the cat website
+    .column.expanded.filters
+      button(type="button").btn-filters filtre
+        div.list-filter
+          div.filter united state
+          div.filter egypt
+          div.filter greece
 
-main
 
-footer
+main.row.expanded
+  .column.small-12.medium-6.large-4
+    app-card-pet
+  .column.small-12.medium-6.large-4
+    app-card-pet
+  .column.small-12.medium-6.large-4
+    app-card-pet
+
+footer.row.expanded
 
 
