@@ -5,14 +5,14 @@ header
     .column.expanded.filters
       button(type="button").btn-filters filtre
         .list-filter
-          div(*ngFor="let breed of breeds").filter {{breed}}
+          div(*ngFor="let breed of breeds", (click)="getCatsByBreed(breed)").filter {{breed}}
 
 
 main.row.expanded
   ng-container(*ngFor="let cat of cats")
-    .column.small-12.medium-6.large-4
+    div(*ngIf="cat").column.small-12.medium-6.large-4
       app-card-pet([cat]="cat" )
+    div(*ngIf="cat && cat.length <= 0") Aucun résultat trouvé
 
-footer.row.expanded
 
 

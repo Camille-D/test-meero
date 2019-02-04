@@ -10,13 +10,17 @@ import { map } from 'rxjs/operators';
 export class AppComponent implements OnInit {
 
   cats;
-  breeds = [];
+  breeds = ['all'];
 
   constructor(
     private catsService: CatsService
   ) {}
 
   ngOnInit(): void {
+    this.getAllCats();
+  }
+
+  getAllCats() {
     this.catsService.getCats()
       .pipe(
         map((result) => {
@@ -25,17 +29,38 @@ export class AppComponent implements OnInit {
           return this.cats;
         }),
         map((cats) => {
-          this.createListFilters(cats);
+          this.createFiltersList(cats);
         })
       )
       .subscribe();
   }
 
-  private createListFilters(catsList) {
+  private createFiltersList(catsList) {
     catsList.filter((cat) => {
       if (cat.origin && !this.breeds.includes(cat.origin)) {
         this.breeds.push(cat.origin);
       }
     });
+  }
+
+  getCatsByBreed(breed: string) {
+    // breed = breed.toLocaleLowerCase();
+    this.cats = [];
+
+    if (breed === 'all') {
+      this.getAllCats();
+    } else {
+      this.catsService.getCatsByBreed(breed)
+        .pipe(
+          map((result) => {
+            if (result) {
+              this.cats = result;
+            }
+
+          })
+        )
+        .subscribe();
+    }
+
   }
 }

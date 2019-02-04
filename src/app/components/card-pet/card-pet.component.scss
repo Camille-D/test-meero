@@ -2,6 +2,7 @@
 @import "_fonts";
 
 figure {
+  position: relative;
   box-shadow: $shadow;
 }
 
@@ -21,12 +22,14 @@ figcaption {
     font-size: $small;
   }
 
-  div {
-    text-align: right;
-    button {
-      color: $bleu;
-      font-size: $small;
-      text-transform: capitalize;
-    }
+
+  button {
+    position: absolute;
+    bottom: 5px;
+    right: 7px;
+    color: $bleu;
+    font-size: $small;
+    text-transform: capitalize;
   }
+
 }

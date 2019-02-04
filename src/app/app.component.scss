@@ -29,7 +29,8 @@ button.btn-filters {
   }
 
   .list-filter {
-    //display: none;
+    z-index: 1;
+    display: none;
     position: absolute;
     bottom: -436px;
     left: 0;
@@ -42,6 +43,9 @@ button.btn-filters {
     .filter {
       line-height: 2rem;
       cursor: pointer;
+      &:hover {
+        background-color: $grey;
+      }
     }
   }
 }
