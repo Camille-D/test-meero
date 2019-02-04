@@ -29,14 +29,16 @@ button.btn-filters {
   }
 
   .list-filter {
-    display: none;
+    //display: none;
     position: absolute;
-    bottom: -95px;
+    bottom: -436px;
     left: 0;
     width: 100%;
     box-shadow: $shadow;
     background-color: white;
     color: black;
+    max-height: 50vh;
+    overflow: scroll;
     .filter {
       line-height: 2rem;
       cursor: pointer;

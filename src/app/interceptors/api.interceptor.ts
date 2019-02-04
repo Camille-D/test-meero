@@ -14,8 +14,6 @@ export class ApiInterceptor implements HttpInterceptor {
       })
     });
 
-    console.log('Intercepted HTTP call', authReq);
-
     return next.handle(authReq);
   }
 }

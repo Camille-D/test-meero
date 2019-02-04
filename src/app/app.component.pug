@@ -4,10 +4,8 @@ header
       h1 the cat website
     .column.expanded.filters
       button(type="button").btn-filters filtre
-        div.list-filter
-          div.filter united state
-          div.filter egypt
-          div.filter greece
+        .list-filter
+          div(*ngFor="let breed of breeds").filter {{breed}}
 
 
 main.row.expanded

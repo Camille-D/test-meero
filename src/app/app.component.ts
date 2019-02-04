@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 export class AppComponent implements OnInit {
 
   cats;
+  breeds = [];
 
   constructor(
     private catsService: CatsService
@@ -21,8 +22,20 @@ export class AppComponent implements OnInit {
         map((result) => {
           console.log('result', result);
           this.cats = result;
+          return this.cats;
+        }),
+        map((cats) => {
+          this.createListFilters(cats);
         })
       )
       .subscribe();
+  }
+
+  private createListFilters(catsList) {
+    catsList.filter((cat) => {
+      if (cat.origin && !this.breeds.includes(cat.origin)) {
+        this.breeds.push(cat.origin);
+      }
+    });
   }
 }
