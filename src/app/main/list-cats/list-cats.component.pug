@@ -1,0 +1,14 @@
+h1 coucou
+
+section.row.expanded
+  ng-container(*ngFor="let cat of cats")
+    div(*ngIf="cat").column.small-12.medium-6.large-4
+      app-card-pet([cat]="cat", (openModal)="openModalCatDetails($event)" )
+
+    div(*ngIf="cat && cat.length <= 0") Aucun résultat trouvé
+
+
+div(*ngIf="displayModal").row.expanded.modal
+  .column.small-12
+    app-modal([detailsCat]="catSelected", (close)="displayModal = false")
+

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CatInterface } from '../interfaces/cat.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,12 @@ export class CatsService {
 
   constructor(private http: HttpClient) { }
 
-  getCats(): Observable<any> {
-    return this.http.get<any>(this.baseApi + 'breeds');
+  getCats(): Observable<CatInterface[]> {
+    return this.http.get<CatInterface[]>(this.baseApi + 'breeds');
   }
 
-  getCatsByBreed(breed) {
-    return this.http.get<any>(this.baseApi + `breeds?attach_breed=${breed}`);
+  getCatsByBreed(breed): Observable<CatInterface[]> {
+    return this.http.get<CatInterface[]>(this.baseApi + `breeds?attach_breed=${breed}`);
   }
 
 }

@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptor } from './interceptors/api.interceptor';
-import { CardPetModule } from './components/card-pet/card-pet.module';
-import { ModalModule } from './components/modal/modal.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,8 +13,7 @@ import { ModalModule } from './components/modal/modal.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    CardPetModule,
-    ModalModule
+    AppRoutingModule
   ],
   providers: [
     {
