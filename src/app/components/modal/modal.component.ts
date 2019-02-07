@@ -1,22 +1,22 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
+  exportAs: 'modal',
   templateUrl: './modal.component.pug',
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent {
 
   @Input() detailsCat;
-  @Output() close = new EventEmitter();
+  @Output() modalClose: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+  constructor( private router: Router ) {}
 
-  ngOnInit() {
-  }
-
-  closeModal() {
-    this.close.emit();
+  closeModal($event) {
+    this.router.navigate([{outlets: {modal: null}}]);
+    this.modalClose.next($event);
   }
 
 }

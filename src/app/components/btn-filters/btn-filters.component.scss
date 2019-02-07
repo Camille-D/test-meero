@@ -1,0 +1,38 @@
+@import "_colors";
+@import "_fonts";
+
+button.btn-filters {
+  box-shadow: $shadow;
+  position: relative;
+  background-color: $darkbleu;
+  padding: 1rem;
+  color: white;
+  min-width: 115px;
+  text-transform: capitalize;
+  &:hover {
+    .list-filters {
+      display: block;
+    }
+  }
+
+  .list-filters {
+    z-index: 1;
+    display: none;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    box-shadow: $shadow;
+    background-color: white;
+    color: black;
+    max-height: 50vh;
+    overflow: scroll;
+    .filter {
+      line-height: 2rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $grey;
+      }
+    }
+  }
+}

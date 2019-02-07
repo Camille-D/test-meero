@@ -1,0 +1,3 @@
+button(type="button").btn-filters filtre
+  div.list-filters
+    div(*ngFor="let breed of breeds", (click)="breedSelectedFn(breed)").filter {{breed}}

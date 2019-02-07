@@ -1,14 +1,23 @@
-h1 coucou
+header
+  nav.row.expanded.align-middle.align-center
+    .column.shrink.logo
+      h1 the cat website
+    .column.expanded.filters
+      app-btn-filters([breeds]="breeds", (breedSelected)="getCatsByBreed($event)")
+
 
 section.row.expanded
+
   ng-container(*ngFor="let cat of cats")
     div(*ngIf="cat").column.small-12.medium-6.large-4
-      app-card-pet([cat]="cat", (openModal)="openModalCatDetails($event)" )
-
-    div(*ngIf="cat && cat.length <= 0") Aucun résultat trouvé
+      app-card-pet([cat]="cat")
 
 
-div(*ngIf="displayModal").row.expanded.modal
-  .column.small-12
-    app-modal([detailsCat]="catSelected", (close)="displayModal = false")
+  div(*ngIf="!cats || cats.length <= 0").column.expanded.text-center
+    span Aucun résultat trouvé
 
+
+//app-modal
+//  div(modal-header='') Login
+//  div(modal-body='') Login body
+//  div(modal-footer='') Login footer

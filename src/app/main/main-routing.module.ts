@@ -12,7 +12,7 @@ const routes: Routes = [
       {
         path: 'cats-list',
         loadChildren: './list-cats/list-cats.module#ListCatsModule',
-      },
+      }
     ]
   }
 ];

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CatInterface } from '../../interfaces/cat.interface';
-import { map } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 import { CatsService } from '../../services/cats.service';
 
 @Component({
@@ -11,9 +11,7 @@ import { CatsService } from '../../services/cats.service';
 export class ListCatsComponent implements OnInit {
 
   cats: CatInterface[];
-  breeds = ['all'];
-  catSelected: CatInterface;
-  displayModal = false;
+  breeds: string[];
 
   constructor(
     private catsService: CatsService
@@ -23,52 +21,30 @@ export class ListCatsComponent implements OnInit {
     this.getAllCats();
   }
 
-  getAllCats() {
-    this.catsService.getCats()
+  private getAllCats() {
+    this.catsService.getCatsFake$()
       .pipe(
-        map((result:  CatInterface[]) => {
-          this.cats = result;
+        first(),
+        map((cats: CatInterface[]) => {
+          this.cats = cats;
           return this.cats;
         }),
         map((cats) => {
-          this.createFiltersList(cats);
+          this.breeds = this.catsService.getListOfBreeds(cats);
         })
       )
       .subscribe();
   }
 
-  private createFiltersList(catsList: CatInterface[]) {
-    catsList.forEach((cat) => {
-      if (cat.origin && !this.breeds.includes(cat.origin)) {
-        this.breeds.push(cat.origin);
-      }
-    });
-  }
 
   getCatsByBreed(breed: string) {
     // breed = breed.toLocaleLowerCase();
     this.cats = [];
-
     if (breed === 'all') {
       this.getAllCats();
     } else {
-      this.catsService.getCatsByBreed(breed)
-        .pipe(
-          map((result:  CatInterface[]) => {
-            if (result) {
-              this.cats = result;
-            }
-
-          })
-        )
-        .subscribe();
+      this.cats = this.catsService.getCatsByBreedFake$(breed);
     }
 
   }
-
-  openModalCatDetails(cat: CatInterface) {
-    this.catSelected = cat;
-    this.displayModal = !this.displayModal;
-  }
-
 }

@@ -23,13 +23,13 @@ figcaption {
   }
 
 
-  button {
+  a {
     position: absolute;
     bottom: 5px;
     right: 7px;
     color: $bleu;
     font-size: $small;
     text-transform: capitalize;
+    text-decoration: none;
   }
-
 }

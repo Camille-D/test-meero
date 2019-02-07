@@ -1,5 +1,5 @@
 
-.row.align-middle.modal-box
+//.row.align-middle.modal-box
   .column.shrink
     img(src="assets/img/placeholder-img.png", alt="Image de l'animal")
   .column.expanded
@@ -10,3 +10,14 @@
     img(src="assets/img/icon-close.svg", alt="icone de fermeture")
 
 
+.modal
+  .modal-content
+    .modal-header
+      button(type="button", (click)="closeModal()" ).close
+        img(src="assets/img/icon-close.svg", alt="icone de fermeture")
+      h2
+        ng-content(select='[modal-header]')
+    .modal-body
+      ng-content(select='[modal-body]')
+    .modal-footer
+      ng-content(select='[modal-footer]')

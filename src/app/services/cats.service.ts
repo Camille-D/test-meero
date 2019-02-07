@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { CatInterface } from '../interfaces/cat.interface';
+import { CatsData } from './catsData';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,25 @@ export class CatsService {
     return this.http.get<CatInterface[]>(this.baseApi + 'breeds');
   }
 
-  getCatsByBreed(breed): Observable<CatInterface[]> {
+  getCatsByBreed(breed: string): Observable<CatInterface[]> {
     return this.http.get<CatInterface[]>(this.baseApi + `breeds?attach_breed=${breed}`);
   }
 
+  getCatsFake$(): Observable<CatInterface[]> {
+    return of(CatsData);
+  }
+
+  getCatsByBreedFake$(breed) {
+    return CatsData.filter((cat) => cat.origin === breed);
+  }
+
+  getListOfBreeds(catsList: CatInterface[]) {
+    const breedsList = ['all'];
+    catsList.forEach((cat) => {
+      if (cat.origin && !breedsList.includes(cat.origin)) {
+        breedsList.push(cat.origin);
+      }
+    });
+    return breedsList;
+  }
 }

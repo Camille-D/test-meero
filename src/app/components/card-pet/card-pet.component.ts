@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CatsService } from '../../services/cats.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card-pet',
@@ -9,16 +8,11 @@ import { CatsService } from '../../services/cats.service';
 export class CardPetComponent implements OnInit {
 
   @Input() cat;
-  @Output() openModal = new EventEmitter();
 
-  constructor(private catsService: CatsService) { }
+  constructor() { }
 
   ngOnInit() {
 
-  }
-
-  showDetails() {
-    this.openModal.emit(this.cat);
   }
 
 }

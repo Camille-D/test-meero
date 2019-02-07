@@ -1,4 +1,5 @@
 export interface CatInterface {
-  name: string;
-  origin: string;
+  name?: string;
+  origin?: string;
+  description?: string;
 }

@@ -1,3 +1,20 @@
+@import "_colors";
+@import "_fonts";
+
+nav {
+  background-color: $bleu;
+  min-height: 10vh;
+  color: white;
+  .logo h1 {
+    text-transform: uppercase;
+    font-size: $large;
+  }
+  .filters {
+    text-align: right;
+  }
+}
+
+
 section {
   min-height: 80vh;
   margin: 2rem 0;
