@@ -4,7 +4,8 @@ import { ListCatsComponent } from './list-cats.component';
 import { CardPetModule } from '../../components/card-pet/card-pet.module';
 import { ListCatsRoutingModule } from './list-cats-routing.module';
 import { BtnFiltersModule } from '../../components/btn-filters/btn-filters.module';
-import { RouterModule } from '@angular/router';
+import { DetailsCatComponent } from './details-cat/details-cat.component';
+import { ModalModule } from '../../components/modal/modal.module';
 
 @NgModule({
   imports: [
@@ -12,10 +13,11 @@ import { RouterModule } from '@angular/router';
     ListCatsRoutingModule,
     CardPetModule,
     BtnFiltersModule,
-    RouterModule,
+    ModalModule
   ],
   declarations: [
-    ListCatsComponent
+    ListCatsComponent,
+    DetailsCatComponent
   ]
 })
 export class ListCatsModule { }

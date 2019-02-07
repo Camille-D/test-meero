@@ -3,4 +3,4 @@ figure
   figcaption
     h2 {{cat?.name}}
     p {{cat?.origin}}
-    a([routerLink]="[ {outlets: { modal: 'cat' } } ]") details
+    a([routerLink]="[ {outlets: { 'modal': ['cat', cat?.id] } } ]") details

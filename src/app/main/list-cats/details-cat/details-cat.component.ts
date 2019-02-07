@@ -10,6 +10,7 @@ export class DetailsCatComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('coucou');
   }
 
 }

@@ -9,7 +9,7 @@ header
 section.row.expanded
 
   ng-container(*ngFor="let cat of cats")
-    div(*ngIf="cat").column.small-12.medium-6.large-4
+    div.column.small-12.medium-6.large-4
       app-card-pet([cat]="cat")
 
 
@@ -17,7 +17,5 @@ section.row.expanded
     span Aucun résultat trouvé
 
 
-//app-modal
-//  div(modal-header='') Login
-//  div(modal-body='') Login body
-//  div(modal-footer='') Login footer
+
+
